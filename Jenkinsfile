@@ -44,7 +44,7 @@ pipeline {
      stage('Deploy') {
      steps {
         sshagent(credentials: ['creds_srv']) {
-        sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.233.120.127 "cd web_app && git pull && go build ./web_app.go && ./web_app &"'
+        sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.233.120.127 "sudo cd web_app && git pull && go build ./web_app.go && ./web_app &"'
      }
     }
   }
